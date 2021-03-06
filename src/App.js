@@ -1,19 +1,19 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
-import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from} from '@apollo/client';
-import {onError} from '@apollo/client/link/error'
+import ApolloClient from 'apollo-boost';
+import {ApolloProvider} from "@apollo/react-hooks";
 import { PokemonsContainer } from './containers/PokemonContainer';
+import './App.css';
        
 function App() {
   const client = new ApolloClient({
-    uri: 'https://graphql-pokeapi.vercel.app',
-    // credentials: 'omit',
-    // cache: new InMemoryCache()
+    uri: 'https://graphql-pokemon2.vercel.app'
   });
-  
+
   return (
     <ApolloProvider client={client}>
-      <PokemonsContainer />
+      <main>
+        <PokemonsContainer />
+      </main>
     </ApolloProvider>
   );
 }
